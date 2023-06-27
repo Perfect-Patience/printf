@@ -2,12 +2,17 @@
 /**
  *_printchar - prints characters
  *@c: character to print
+ *@i: number of characters printed
  *
+ *Return: i;
  */
 
-void  _printchar(char c)
+int  _printchar(char c, int i)
 {
+		_printstring("(null)", 0);
 	_putchar(c);
+	i++;
+	return (i);
 }
 
 
@@ -21,6 +26,8 @@ void  _printchar(char c)
 
 int _printstring(char *s, int i)
 {
+	if (s == NULL)
+		s = "(null)";
 
 	while (*s)
 	{
@@ -29,4 +36,42 @@ int _printstring(char *s, int i)
 		i++;
 	}
 	return (i);
+}
+
+/**
+ *selectformat - selects string format type
+ *@format: format of string
+ *@args: argument list
+ *@count: number of characters printed;
+ *
+ * Return: count;
+ */
+
+int selectformat(const char *format, va_list args, int count)
+{
+	char c;
+	char *s;
+
+	switch (*format)
+	{
+		case 'c':
+			{
+				c = va_arg(args, int);
+				count = _printchar(c, count);
+				break;
+			}
+		case 's':
+			{
+				s = va_arg(args, char *);
+				count = _printstring(s, count);
+				break;
+			}
+		case '%':
+			{
+				_putchar('%');
+				count++;
+				break;
+			}
+	}
+	return (count);
 }

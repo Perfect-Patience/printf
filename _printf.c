@@ -13,8 +13,6 @@ int _printf(const char *format, ...)
 {
 	int count = 0;
 	va_list arguments;
-	char c;
-	char *s;
 
 	va_start(arguments, format);
 
@@ -23,22 +21,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			switch (*format)
-			{
-				case 'c':
-					{
-						c = va_arg(arguments, int);
-						_printchar(c);
-						count++;
-						break;
-					}
-				case 's':
-					{
-						s = va_arg(arguments, char *);
-						count = _printstring(s, count);
-						break;
-					}
-			}
+			count = selectformat(format, arguments, count);
 		}
 		else
 		{

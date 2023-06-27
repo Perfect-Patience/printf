@@ -1,10 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdarg.h>
+#include <stddef.h>
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-void _printchar(char c);
+int selectformat(const char *format, va_list args, int count);
+int _printchar(char c, int i);
 int _printstring(char *s, int i);
 
 #endif
