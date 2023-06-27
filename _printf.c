@@ -21,22 +21,24 @@ int _printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
-			format++;
-		switch (*format)
 		{
-			case 'c':
-				{
-					c = va_arg(arguments, int);
-					_printchar(c);
-					count++;
-					break;
-				}
-			case 's':
-				{
-					s = va_arg(arguments, char *);
-					count = _printstring(s, count);
-					break;
-				}
+			format++;
+			switch (*format)
+			{
+				case 'c':
+					{
+						c = va_arg(arguments, int);
+						_printchar(c);
+						count++;
+						break;
+					}
+				case 's':
+					{
+						s = va_arg(arguments, char *);
+						count = _printstring(s, count);
+						break;
+					}
+			}
 		}
 		else
 		{
