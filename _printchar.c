@@ -9,7 +9,6 @@
 
 int  _printchar(char c, int i)
 {
-		_printstring("(null)", 0);
 	_putchar(c);
 	i++;
 	return (i);
