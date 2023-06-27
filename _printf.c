@@ -23,7 +23,8 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			count = selectformat(format, arguments, count);
+			if(format)
+				count = selectformat(format, arguments, count);
 		}
 		else
 		{

@@ -71,6 +71,16 @@ int selectformat(const char *format, va_list args, int count)
 				count++;
 				break;
 			}
+		default:
+			{
+				if (format != NULL)
+				{
+				_putchar('%');
+				count++;
+				_putchar(*format);
+				count++;
+				}
+			}
 	}
 	return (count);
 }
