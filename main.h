@@ -5,7 +5,7 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int selectformat(const char *format, va_list args, int count);i
+int selectformat(const char *format, va_list args, int count);
 int _printchar(char c, int i);
 int _printstring(char *s, int i);
 
