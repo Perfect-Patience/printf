@@ -50,7 +50,6 @@ int selectformat(const char *format, va_list args, int count)
 {
 	char c;
 	char *s;
-	int d, i;
 
 	switch (*format)
 	{
