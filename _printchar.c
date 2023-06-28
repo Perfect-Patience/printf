@@ -9,6 +9,8 @@
 
 int  _printchar(char c, int i)
 {
+	if (c == '\0')
+		_printstring("(nul)", 0);
 	_putchar(c);
 	i++;
 	return (i);
@@ -50,6 +52,7 @@ int selectformat(const char *format, va_list args, int count)
 {
 	char c;
 	char *s;
+	int d, i;
 
 	switch (*format)
 	{
